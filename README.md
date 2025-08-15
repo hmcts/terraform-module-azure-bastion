@@ -27,25 +27,39 @@ module "todo_resource_name" {
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.7.0 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_ctags"></a> [ctags](#module\_ctags) | github.com/hmcts/terraform-module-common-tags | n/a |
+
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group.rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_bastion_host.bastion_host](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host) | resource |
+| [azurerm_public_ip.p_ip_bastion](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) | resource |
+| [azurerm_subnet.azure_bastion_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Common tag to be applied to resources. | `map(string)` | n/a | yes |
-| <a name="input_component"></a> [component](#input\_component) | https://hmcts.github.io/glossary/#component | `string` | n/a | yes |
+| <a name="input_allocation_method"></a> [allocation\_method](#input\_allocation\_method) | Specify Static or Dynamic | `string` | n/a | yes |
+| <a name="input_azbastion_subnet_address"></a> [azbastion\_subnet\_address](#input\_azbastion\_subnet\_address) | Virtual network subnet address that contains the azure bastion host | `any` | n/a | yes |
+| <a name="input_bastion_name"></a> [bastion\_name](#input\_bastion\_name) | Name of the bastion host | `string` | n/a | yes |
+| <a name="input_bastion_sku"></a> [bastion\_sku](#input\_bastion\_sku) | Specify SKU for the bastion host | `string` | n/a | yes |
+| <a name="input_builtFrom"></a> [builtFrom](#input\_builtFrom) | Built from value. | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Environment value. | `string` | n/a | yes |
-| <a name="input_existing_resource_group_name"></a> [existing\_resource\_group\_name](#input\_existing\_resource\_group\_name) | Name of existing resource group to deploy resources into | `string` | `null` | no |
+| <a name="input_ip_config_name"></a> [ip\_config\_name](#input\_ip\_config\_name) | IP config name | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Target Azure location to deploy the resource | `string` | `"UK South"` | no |
-| <a name="input_name"></a> [name](#input\_name) | The default name will be product+component+env, you can override the product+component part by setting this | `string` | `""` | no |
 | <a name="input_product"></a> [product](#input\_product) | https://hmcts.github.io/glossary/#product | `string` | n/a | yes |
-| <a name="input_project"></a> [project](#input\_project) | Project name - sds or cft. | `any` | n/a | yes |
+| <a name="input_public_ip_name"></a> [public\_ip\_name](#input\_public\_ip\_name) | Public IP of the Bastion | `string` | n/a | yes |
+| <a name="input_public_ip_sku"></a> [public\_ip\_sku](#input\_public\_ip\_sku) | Enter the SKU for the Public IP of the Bastion | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name that contains the azure bastion host | `string` | n/a | yes |
+| <a name="input_tunneling_enabled"></a> [tunneling\_enabled](#input\_tunneling\_enabled) | Select True or False, tunneling is only supported when sku is Standard | `bool` | n/a | yes |
+| <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | Virtual network name that contains the bastion host | `string` | n/a | yes |
 
 ## Outputs
 
